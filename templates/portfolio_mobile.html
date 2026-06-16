@@ -1,0 +1,25 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+<section class="category container">
+  <h1>Mobile Development</h1>
+  <p>Android apps and utilities. Each entry includes screenshots and an APK or source download.</p>
+  <ul class="project-list">
+    <li class="project-card">
+      <img src="/static/images/mobile-1.png" alt="Mobile 1">
+      <div>
+        <h3>Study Buddy (Android)</h3>
+        <p>A simple flashcard app to help memorize concepts with spaced repetition.</p>
+        <p><a href="/static/demos/study-buddy/" target="_blank">Live demo</a> • <a href="/static/downloads/study-buddy.apk" download>Download APK</a></p>
+      </div>
+    </li>
+    <li class="project-card">
+      <img src="/static/images/mobile-2.png" alt="Mobile 2">
+      <div>
+        <h3>Utility Toolkit</h3>
+        <p>Collection of small utilities: unit converter, note quick-save, and timers.</p>
+        <p><a href="/static/demos/utility-toolkit/" target="_blank">Live demo</a> • <a href="/static/downloads/utility-toolkit.apk" download>Download APK</a></p>
+      </div>
+    </li>
+  </ul>
+</section>
+{% endblock %}

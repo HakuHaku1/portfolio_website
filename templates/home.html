@@ -1,0 +1,27 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+<section class="hero-panel">
+    <div class="container hero-content">
+        <h1>Full-Stack Developer & Game Designer</h1>
+        <p>Parañaque City, Philippines · C# · Java · Android Studio · Flask</p>
+        <div class="hero-actions">
+            <a class="button" href="{{ url_for('profile') }}">Contact Me</a>
+            <a class="button button-secondary" href="{{ url_for('portfolio') }}">View Portfolio</a>
+        </div>
+    </div>
+</section>
+<section class="home-overview container">
+    <div class="overview-card">
+        <h2>Website</h2>
+        <p>Flask and web projects designed with polished layouts, fast interactions, and mobile-friendly experiences.</p>
+    </div>
+    <div class="overview-card">
+        <h2>Game Dev</h2>
+        <p>Small Unity games and playful mechanics focused on creative prototyping and engaging interaction design.</p>
+    </div>
+    <div class="overview-card">
+        <h2>Mobile</h2>
+        <p>Android Studio applications and utilities that bring workflow tools and productivity features to the phone.</p>
+    </div>
+</section>
+{% endblock %}

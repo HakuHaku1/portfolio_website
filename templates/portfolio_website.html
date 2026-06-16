@@ -1,0 +1,33 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+<section class="category container">
+  <h1>Website Projects</h1>
+  <p>Websites, web apps, and responsive builds. Each entry includes screenshots and a download link for the source or build.</p>
+  <ul class="project-list">
+    <li class="project-card">
+      <img src="/static/images/website-1.png" alt="Website 1">
+      <div>
+        <h3>Landing Page — Product Launch</h3>
+        <p>Fast, accessible landing page with signup and analytics integration.</p>
+        <p><a href="/static/demos/landing-demo/index.html" target="_blank">Live demo</a> • <a href="/static/downloads/landing-page.zip" download>Download</a></p>
+      </div>
+    </li>
+    <li class="project-card">
+      <img src="/static/images/website-2.png" alt="Website 2">
+      <div>
+        <h3>Portfolio CMS</h3>
+        <p>A small CMS-driven portfolio using Flask for content and uploads.</p>
+        <p><a href="/static/demos/portfolio-cms/" target="_blank">Live demo</a> • <a href="/static/downloads/portfolio-cms.zip" download>Download</a></p>
+      </div>
+    </li>
+    <li class="project-card">
+      <img src="/static/images/website-3.png" alt="Website 3">
+      <div>
+        <h3>E-commerce Prototype</h3>
+        <p>Shopping flow prototype with mock checkout and product gallery.</p>
+        <p><a href="/static/demos/ecom/" target="_blank">Live demo</a> • <a href="/static/downloads/ecom-prototype.zip" download>Download</a></p>
+      </div>
+    </li>
+  </ul>
+</section>
+{% endblock %}

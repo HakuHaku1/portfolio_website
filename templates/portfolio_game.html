@@ -1,0 +1,25 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+<section class="category container">
+  <h1>Game Development</h1>
+  <p>Small games and prototypes made with Unity and C#. Screenshots and build downloads included.</p>
+  <ul class="project-list">
+    <li class="project-card">
+      <img src="/static/images/game-1.png" alt="Game 1">
+      <div>
+        <h3>Puzzle Runner</h3>
+        <p>A short single-player puzzle game exploring rhythm-based movement.</p>
+        <p><a href="/static/demos/puzzle-runner/" target="_blank">Play demo</a> • <a href="/static/downloads/puzzle-runner.zip" download>Download build</a></p>
+      </div>
+    </li>
+    <li class="project-card">
+      <img src="/static/images/game-2.png" alt="Game 2">
+      <div>
+        <h3>Prototype: Gravity Blocks</h3>
+        <p>Physics-based prototype demonstrating emergent stacking mechanics.</p>
+        <p><a href="/static/demos/gravity-blocks/" target="_blank">Play demo</a> • <a href="/static/downloads/gravity-blocks.zip" download>Download build</a></p>
+      </div>
+    </li>
+  </ul>
+</section>
+{% endblock %}

@@ -1,0 +1,34 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+<section class="page-intro container">
+    <div class="profile-intro">
+        <h1>About</h1>
+        <p>I'm a full-stack enthusiast and aspiring game designer based in Parañaque City. I build websites, mobile apps, and game prototypes using C#, Java, Python, and Flask.</p>
+    </div>
+</section>
+<section class="about container about-panel">
+    <h2>My story</h2>
+    <p>I combine classroom learning in computer science with personal projects that test new ideas. I enjoy polishing visuals, improving interactions, and making code that supports long-term learning.</p>
+    <h3>Education & learning</h3>
+    <ul class="about-list">
+        <li>STI Pasay-EDSA College — computer science coursework and project-based learning.</li>
+        <li>Self-study: Unity, Android Studio, Flask, HTML/CSS, and JavaScript.</li>
+    </ul>
+    <h3>Where I contribute</h3>
+    <ul class="about-list">
+        <li>Web apps with Flask, responsive layout, and simple backend routes.</li>
+        <li>Unity game prototypes with mechanics, physics, and visual polish.</li>
+        <li>Android utilities for notes, flashcards, and small productivity tools.</li>
+    </ul>
+    <h3>Selected projects</h3>
+    <ol class="about-list">
+
+    </ol>
+    <div class="contact-panel">
+        <h3>Contact</h3>
+        <p><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"> <a href="https://github.com/HakuHaku1">github.com/HakuHaku1</a></p>
+        <p><img src="{{ url_for('static', filename='images/fbic.png') }}" alt="Facebook"> <a href="https://www.facebook.com/hakuryu.kato.54/">Hakuryu Kato</a></p>
+        <p><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"> <a href="https://www.instagram.com/kato_hakuryu/">@kato_hakuryu</a></p>
+    </div>
+</section>
+{% endblock %}
