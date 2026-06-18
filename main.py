@@ -39,6 +39,10 @@ def mobiledev():
 def website():
     return render_template("portfolio_website.html")
 
+@app.route("/preview")
+def preview():
+    return render_template("preview.html")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True, ssl_context='adhoc')
 

@@ -1,12 +1,12 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block content %}
-<section class="page-intro container">
+<section class="page-intro container reveal">
     <div class="profile-intro">
         <h1>About</h1>
         <p>I'm a full-stack enthusiast and aspiring game designer based in Parañaque City. I build websites, mobile apps, and game prototypes using C#, Java, Python, and Flask.</p>
     </div>
 </section>
-<section class="about container about-panel">
+<section class="about container about-panel reveal" style="transition-delay: 0.1s;">
     <h2>My story</h2>
     <p>I combine classroom learning in computer science with personal projects that test new ideas. I enjoy polishing visuals, improving interactions, and making code that supports long-term learning.</p>
     <h3>Education & learning</h3>
@@ -24,11 +24,11 @@
     <ol class="about-list">
 
     </ol>
-    <div class="contact-panel">
+    <div class="contact-panel reveal" style="transition-delay: 0.2s;">
         <h3>Contact</h3>
-        <p><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"> <a href="https://github.com/HakuHaku1">github.com/HakuHaku1</a></p>
-        <p><img src="{{ url_for('static', filename='images/fbic.png') }}" alt="Facebook"> <a href="https://www.facebook.com/hakuryu.kato.54/">Hakuryu Kato</a></p>
-        <p><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"> <a href="https://www.instagram.com/kato_hakuryu/">@kato_hakuryu</a></p>
+        <p><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"> <a href="https://github.com/HakuHaku1" target="_blank">github.com/HakuHaku1</a></p>
+        <p><img src="{{ url_for('static', filename='images/fbic.png') }}" alt="Facebook"> <a href="https://www.facebook.com/hakuryu.kato.54/" target="_blank">Hakuryu Kato</a></p>
+        <p><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"> <a href="https://www.instagram.com/kato_hakuryu/" target="_blank">@kato_hakuryu</a></p>
     </div>
 </section>
 {% endblock %}

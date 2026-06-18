@@ -1,33 +1,61 @@
 ﻿{% extends 'base.html' %}
 {% block content %}
-<section class="category container">
+<section class="category container reveal">
   <h1>Website Projects</h1>
-  <p>Websites, web apps, and responsive builds. Each entry includes screenshots and a download link for the source or build.</p>
-  <ul class="project-list">
-    <li class="project-card">
-      <img src="/static/images/website-1.png" alt="Website 1">
-      <div>
-        <h3>Landing Page — Product Launch</h3>
-        <p>Fast, accessible landing page with signup and analytics integration.</p>
-        <p><a href="/static/demos/landing-demo/index.html" target="_blank">Live demo</a> • <a href="/static/downloads/landing-page.zip" download>Download</a></p>
-      </div>
-    </li>
-    <li class="project-card">
-      <img src="/static/images/website-2.png" alt="Website 2">
-      <div>
-        <h3>Portfolio CMS</h3>
-        <p>A small CMS-driven portfolio using Flask for content and uploads.</p>
-        <p><a href="/static/demos/portfolio-cms/" target="_blank">Live demo</a> • <a href="/static/downloads/portfolio-cms.zip" download>Download</a></p>
-      </div>
-    </li>
-    <li class="project-card">
-      <img src="/static/images/website-3.png" alt="Website 3">
-      <div>
-        <h3>E-commerce Prototype</h3>
-        <p>Shopping flow prototype with mock checkout and product gallery.</p>
-        <p><a href="/static/demos/ecom/" target="_blank">Live demo</a> • <a href="/static/downloads/ecom-prototype.zip" download>Download</a></p>
-      </div>
-    </li>
-  </ul>
+  <p>Websites, web apps, and responsive builds. Each entry includes screenshots, a preview video, and a download link for the source or build.</p>
+  <div id="project-grid"></div>
 </section>
+
+<script>
+const projects = [
+  {
+    name: 'Profile Website',
+    description: 'This website itself, built with HTML, CSS, and JavaScript. It features a responsive design and showcases various projects.',
+    tags: ['Responsive', '[Portfolio]'],
+    link: '/static/demos/landing-demo/index.html',
+    icon: '🌐',
+    image: '/static/images/website.jpg',
+    imageAlt: 'Website 1',
+    actions: [
+      { label: 'Watch preview', href: '/preview?project=Landing%20Page%20%E2%80%94%20Product%20Launch' },
+      { label: 'Download', href: '/static/downloads/landing-page.zip', download: true }
+    ]
+  },
+
+];
+
+function renderProjects(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const list = document.createElement('ul');
+  list.className = 'project-list';
+
+  list.innerHTML = projects.map((project, index) => {
+    const actions = project.actions.map(action => {
+      const downloadAttr = action.download ? ' download' : '';
+      const targetAttr = action.target ? ` target="${action.target}"` : '';
+      return `<a href="${action.href}"${targetAttr}${downloadAttr}>${action.label}</a>`;
+    }).join(' • ');
+
+    const tags = project.tags.length ? `<div class="project-tags">${project.tags.map(tag => `<span>${tag}</span>`).join('')}</div>` : '';
+
+    return `
+      <li class="project-card reveal" style="transition-delay: ${(index + 1) * 0.15}s;">
+        <img src="${project.image}" alt="${project.imageAlt}">
+        <div>
+          <h3>${project.icon} ${project.name}</h3>
+          <p>${project.description}</p>
+          ${tags}
+          <p>${actions}</p>
+        </div>
+      </li>
+    `;
+  }).join('');
+
+  container.appendChild(list);
+}
+
+renderProjects('project-grid');
+</script>
 {% endblock %}

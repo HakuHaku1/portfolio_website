@@ -1,13 +1,13 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block content %}
-<section class="page-intro container">
+<section class="page-intro container reveal">
     <div class="profile-intro">
         <h1>Profile</h1>
         <p>Aspiring full-stack developer and game designer with a love for building polished digital experiences.</p>
     </div>
 </section>
 <section class="profile-grid container">
-    <div class="profile-card">
+    <div class="profile-card reveal" style="transition-delay: 0.1s;">
         <div class="profile-header">
             <img src="/static/images/profile.jpg" alt="Hakuryu Acosta Kato" class="profile-img">
             <div>
@@ -20,7 +20,7 @@
             <p>I enjoy turning early ideas into real demos and learning through every build. My interest is building clean UIs, game mechanics, and mobile apps that feel intentional and easy to use.</p>
         </div>
     </div>
-    <div class="skills-panel">
+    <div class="skills-panel reveal" style="transition-delay: 0.2s;">
         <h2>Skills & Experience</h2>
         <ul class="skills-list">
             <li>C# and Java for desktop, mobile, and game development.</li>
@@ -31,18 +31,18 @@
         </ul>
     </div>
 </section>
-<section class="profile-highlight container">
+<section class="profile-highlight container reveal">
     <h2>What I share in this portfolio</h2>
     <div class="highlight-grid">
-        <div>
+        <div class="reveal" style="transition-delay: 0.1s;">
             <h3>Website work</h3>
             <p>Projects that show polished UI, responsive builds, and thoughtful user flows.</p>
         </div>
-        <div>
+        <div class="reveal" style="transition-delay: 0.2s;">
             <h3>Game concepts</h3>
             <p>Interactive game experiments with Unity that highlight mechanics and prototyping.</p>
         </div>
-        <div>
+        <div class="reveal" style="transition-delay: 0.3s;">
             <h3>Mobile apps</h3>
             <p>Android utilities and small apps built for productivity, notes, and learning.</p>
         </div>
