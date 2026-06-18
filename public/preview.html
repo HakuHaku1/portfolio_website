@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakuryu Kato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+    <div class="orb-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">Hakuryu Kato</a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="profile.html">Profile</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+    <main class="content">
+<section class="category container">
+  <h1>Project Preview</h1>
+  <p class="preview-intro">Fast preview page for a selected project. Use the button below to watch the video or download the build.</p>
+  <div class="preview-card">
+    <div class="preview-preview">
+      <video id="preview-video" controls>
+        <source id="preview-source" src="" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+    </div>
+    <div class="preview-details">
+      <h2 id="preview-title"></h2>
+      <p id="preview-description"></p>
+      <div id="preview-tags" class="project-tags"></div>
+      <div class="preview-actions" id="preview-actions"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+const previewData = {
+  'Clinique (Android)': {
+    title: 'Clinique (Android)',
+    description: 'The video you are seeing is just the preview. their are more features in the full app!',
+    tags: ['Android', 'Spaced Repetition'],
+    video: 'static/videos/clinique.mp4',
+    actions: [
+      { label: 'Download APK', href: 'static/downloads/clinique.zip', download: true }
+    ]
+  }
+};
+
+function populatePreview() {
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get('project');
+  const data = title ? previewData[title] : null;
+
+  if (!data) {
+    document.getElementById('preview-title').textContent = 'Project not found';
+    document.getElementById('preview-description').textContent = 'Select a project from the portfolio pages.';
+    document.getElementById('preview-actions').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('preview-title').textContent = data.title;
+  document.getElementById('preview-description').textContent = data.description;
+  document.getElementById('preview-tags').innerHTML = data.tags.map(tag => `<span>${tag}</span>`).join(' · ');
+  document.getElementById('preview-source').src = data.video;
+  document.getElementById('preview-video').load();
+
+  document.getElementById('preview-actions').innerHTML = data.actions.map(action => {
+    const downloadAttr = action.download ? ' download' : '';
+    return `<a href="${action.href}" class="button"${downloadAttr}>${action.label}</a>`;
+  }).join(' ');
+}
+
+populatePreview();
+</script>
+</main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
