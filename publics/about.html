@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakuryu Kato</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+    <div class="orb-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">Hakuryu Kato</a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="profile.html">Profile</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+    <main class="content">
+<section class="page-intro container reveal">
+    <div class="profile-intro">
+        <h1>About</h1>
+        <p>I'm a full-stack enthusiast and aspiring game designer based in Parañaque City. I build websites, mobile apps, and game prototypes using C#, Java, Python, and Flask.</p>
+    </div>
+</section>
+<section class="about container about-panel reveal" style="transition-delay: 0.1s;">
+    <h2>My story</h2>
+    <p>I combine classroom learning in computer science with personal projects that test new ideas. I enjoy polishing visuals, improving interactions, and making code that supports long-term learning.</p>
+    <h3>Education & learning</h3>
+    <ul class="about-list">
+        <li>STI Pasay-EDSA College — computer science coursework and project-based learning.</li>
+        <li>Self-study: Unity, Android Studio, Flask, HTML/CSS, and JavaScript.</li>
+    </ul>
+    <h3>Where I contribute</h3>
+    <ul class="about-list">
+        <li>Web apps with Flask, responsive layout, and simple backend routes.</li>
+        <li>Unity game prototypes with mechanics, physics, and visual polish.</li>
+        <li>Android utilities for notes, flashcards, and small productivity tools.</li>
+    </ul>
+    <h3>Selected projects</h3>
+    <ol class="about-list">
+
+    </ol>
+    <div class="contact-panel reveal" style="transition-delay: 0.2s;">
+        <h3>Contact</h3>
+        <p><img src="static/images/github.png" alt="GitHub"> <a href="https://github.com/HakuHaku1" target="_blank">github.com/HakuHaku1</a></p>
+        <p><img src="static/images/fbic.png" alt="Facebook"> <a href="https://www.facebook.com/hakuryu.kato.54/" target="_blank">Hakuryu Kato</a></p>
+        <p><img src="static/images/instagram.png" alt="Instagram"> <a href="https://www.instagram.com/kato_hakuryu/" target="_blank">@kato_hakuryu</a></p>
+    </div>
+</section>
+</main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
