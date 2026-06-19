@@ -17,6 +17,11 @@
     <header class="site-header">
         <div class="container header-inner">
             <a class="brand" href="index.html">Hakuryu Kato</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav class="main-nav">
                 <a href="index.html">Home</a>
                 <a href="profile.html">Profile</a>
@@ -25,6 +30,7 @@
             </nav>
         </div>
     </header>
+    <div class="nav-overlay"></div>
     <main class="content">
 <section class="page-intro container reveal">
     <div class="profile-intro">
@@ -76,6 +82,35 @@
 
             reveals.forEach(reveal => {
                 revealOnScroll.observe(reveal);
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mainNav = document.querySelector('.main-nav');
+            const navOverlay = document.querySelector('.nav-overlay');
+            const navLinks = document.querySelectorAll('.main-nav a');
+
+            function toggleMenu() {
+                mobileMenuBtn.classList.toggle('active');
+                mainNav.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMenu);
+            }
+
+            if (navOverlay) {
+                navOverlay.addEventListener('click', toggleMenu);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
             });
         });
     </script>
