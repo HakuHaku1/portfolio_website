@@ -1,6 +1,6 @@
 # Hakuryu Kato's Portfolio Website
 
-A modern, responsive portfolio website showcasing full-stack development, game design, and mobile app projects.
+A modern, responsive portfolio website showcasing backend development, game design, and mobile app projects.
 
 ## Overview
 
@@ -117,4 +117,4 @@ Works on all modern browsers (Chrome, Firefox, Safari, Edge) with responsive des
 ---
 
 **Location** — Parañaque City, Philippines  
-**Status** — Full-stack developer & aspiring game designer
+**Status** — Backend developer & aspiring game designer
