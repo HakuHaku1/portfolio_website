@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="static/style.css" />
 </head>
 <body>
@@ -24,7 +25,6 @@
             </button>
             <nav class="main-nav">
                 <a href="announcement.html">Announcement</a>
-
                 <a href="index.html">Home</a>
                 <a href="profile.html">Profile</a>
                 <a href="portfolio.html">Portfolio</a>
@@ -34,55 +34,25 @@
     </header>
     <div class="nav-overlay"></div>
     <main class="content">
-<section class="page-intro container reveal">
-    <div class="profile-intro">
-        <h1>Profile</h1>
-        <p>Aspiring backend developer and game designer with a love for building polished digital experiences.</p>
-    </div>
-</section>
-<section class="profile-grid container">
-    <div class="profile-card reveal" style="transition-delay: 0.1s;">
-        <div class="profile-header">
-            <img src="static/images/profile.jpg" alt="Hakuryu Acosta Kato" class="profile-img">
-            <div>
-                <h2>Hi, I'm Hakuryu Acosta Kato.</h2>
-                <p>I'm a student at STI Pasay-EDSA College working toward becoming a backend developer and game designer. I work with C#, Java, Android Studio, and Flask to build practical projects and prototypes.</p>
+        <section class="announcement-panel reveal">
+            <div class="container announcement-content">
+                <h1>Announcement</h1>
+                <p>Welcome to my portfolio website! This site showcases my work in web development, game development, and mobile applications. Feel free to explore the different sections and check out my projects.</p>
+                <p>If you have any questions or would like to get in touch, please use the contact form on the About page. Thank you for visiting!</p>
             </div>
-        </div>
-        <div class="profile-about">
-            <h3>About</h3>
-            <p>I enjoy turning early ideas into real demos and learning through every build. My interest is building clean UIs, game mechanics, and mobile apps that feel intentional and easy to use.</p>
-        </div>
-    </div>
-    <div class="skills-panel reveal" style="transition-delay: 0.2s;">
-        <h2>Skills & Experience</h2>
-        <ul class="skills-list">
-            <li>C# and Java for desktop, mobile, and game development.</li>
-            <li>Android Studio app development with local storage and utility features.</li>
-            <li>Flask web applications, templating, and responsive front-end design.</li>
-            <li>100 Days of Code™: The Complete Python Pro Bootcamp</li>
-            <li>Unity prototypes, simple shaders, physics interactions, and gameplay metrics.</li>
-            <li>Version control with Git and structured development workflows.</li>
-        </ul>
-    </div>
-</section>
-<section class="profile-highlight container reveal">
-    <h2>What I share in this portfolio</h2>
-    <div class="highlight-grid">
-        <div class="reveal" style="transition-delay: 0.1s;">
-            <h3>Website work</h3>
-            <p>Projects that show polished UI, responsive builds, and thoughtful user flows.</p>
-        </div>
-        <div class="reveal" style="transition-delay: 0.2s;">
-            <h3>Game concepts</h3>
-            <p>Interactive game experiments with Unity that highlight mechanics and prototyping.</p>
-        </div>
-        <div class="reveal" style="transition-delay: 0.3s;">
-            <h3>Mobile apps</h3>
-            <p>Android utilities and small apps built for productivity, notes, and learning.</p>
-        </div>
-    </div>
-</section>
+        </section>
+        <section class="upcoming reveal" style="transition-delay: 0.1s;">
+            <div class="container">
+                <h2>Upcoming Projects</h2>
+                <div class="upcoming-grid">
+                <div class="upcoming-card reveal" style="transition-delay: 0.15s;">
+                    <h3>🌐 Personal Finance Application</h3>
+                    <p>An application in which you can manage your personal finances, track expenses, and set budget goals. suitable for both personal and business use.</p>
+                    <span class="status status-inprogress"> ⏳ In Progress</span>
+                </div>
+                </div>
+            </div>
+        </section>
 </main>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
