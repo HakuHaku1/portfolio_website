@@ -904,6 +904,33 @@ body {
         padding: 12px 24px;
         font-size: 0.9rem;
     }
+
+    /* Announcement card container mobile fix */
+    .card-container {
+        flex-direction: column;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    /* Announcement cards mobile fix */
+    .upcoming-card {
+        padding: 24px;
+    }
+
+    .upcoming-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .upcoming-card p {
+        font-size: 0.9rem;
+    }
+
+    .progress-percent {
+        position: static;
+        margin-top: 12px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1014,6 +1041,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+    position: relative;
 }
 
 .upcoming-card:hover {
@@ -1064,4 +1092,24 @@ body {
     background: rgba(6, 182, 212, 0.15);
     color: #67e8f9;
     border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.progress-percent {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center; /* centers the group */
+  gap: 24px;
+}
+
+.card {
+  flex: 1;          /* equal width */
+  max-width: 300px;
 }
