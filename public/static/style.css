@@ -618,6 +618,13 @@ body {
     border: 1px solid var(--surface-border);
 }
 
+/* Keep specific icons like snake.png fully visible (no cropping) while leaving other project images as cover */
+.project-card img[src*="snake.png"] {
+    object-fit: contain;
+    padding: 12px;
+    background: transparent;
+}
+
 .project-card h3 {
     margin: 0 0 10px;
     font-size: 1.5rem;
