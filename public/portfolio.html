@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="theme-color" content="#090d16" />
-    <title>Hakuryu Kato</title>
+    <meta name="theme-color" content="#020617" />
+    <title>Portfolio | Hakuryu Kato</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css" />
+    <script src="static/transitions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="static/vanta-background.js"></script>
 </head>
 <body>
     <div class="orb-container">
@@ -24,48 +28,127 @@
                 <span></span>
             </button>
             <nav class="main-nav">
-                <a href="announcement.html">Upcoming Projects</a>
                 <a href="index.html">Home</a>
                 <a href="profile.html">Profile</a>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="portfolio.html" aria-current="page">Portfolio</a>
                 <a href="about.html">About</a>
             </nav>
         </div>
     </header>
     <div class="nav-overlay"></div>
     <main class="content">
-<section class="page-intro container reveal">
-    <div class="portfolio-intro">
-        <h1>Portfolio</h1>
-        <p>Explore projects grouped by category. Click a category to view screenshots, demos, and downloads.</p>
-    </div>
-    <nav class="portfolio-categories">
-        <a href="portfolio_website.html" class="category-link">Website</a>
-        <a href="portfolio_game.html" class="category-link">Game Development</a>
-        <a href="portfolio_mobile.html" class="category-link">Mobile Development</a>
-    </nav>
+<section class="page-intro container reveal portfolio-intro">
+    <p class="eyebrow">Selected work</p>
+    <h1>Portfolio</h1>
+    <p>A collection of web applications, mobile apps, and games. Each project is labeled by application type, with demos and downloads where available.</p>
 </section>
-<section class="featured container reveal" style="transition-delay: 0.1s;">
-    <h2>Featured categories</h2>
-    <div class="featured-grid">
-        <a href="portfolio_website.html" class="featured-card reveal" style="transition-delay: 0.15s;">
-            <img src="static/images/website.jpg" alt="Website featured">
-            <h3>Website Projects</h3>
-            <p>Responsive sites, landing pages, and web apps with clean interactions and visual polish.</p>
-        </a>
-        <a href="portfolio_game.html" class="featured-card reveal" style="transition-delay: 0.25s;">
-            <img src="static/images/gamedev.jpg" alt="Game featured">
-            <h3>Game Development</h3>
-            <p>Unity prototypes, mechanics experiments, and playable demos with a design-first mindset.</p>
-        </a>
-        <a href="portfolio_mobile.html" class="featured-card reveal" style="transition-delay: 0.35s;">
-            <img src="static/images/background123.jpg" alt="Mobile featured">
-            <h3>Mobile Development</h3>
-            <p>Android apps and small utilities built for reliability, usability, and mobile workflows.</p>
-        </a>
+<section class="container portfolio-section reveal" aria-label="All projects">
+    <div class="portfolio-heading">
+        <h2>All projects</h2>
+        <span>6 projects</span>
     </div>
+    <div id="project-grid"></div>
 </section>
 </main>
+    <script>
+        const projects = [
+            {
+                name: 'Portfolio Website',
+                type: 'Website',
+                description: 'This website itself, built with HTML, CSS, and JavaScript. It features a responsive design and showcases various projects.',
+                tags: ['JavaScript', 'HTML', 'CSS'],
+                icon: '🌐',
+                actions: [
+                    { label: 'Visit website', href: 'https://portfolio-website-iota-seven-83.vercel.app', target: '_blank' }
+                ]
+            },
+            {
+                name: 'HakuTech Financial Tree',
+                type: 'Web application',
+                description: 'A frontend-only application for managing personal and business finances, with expense tracking, reports, and data visualization. No backend or database.',
+                tags: ['JavaScript', 'HTML', 'CSS'],
+                icon: '🧮',
+                actions: [
+                    { label: 'Watch preview', href: 'preview.html?project=HakuTech%20Financial%20Tree' },
+                    { label: 'Download', href: 'static/downloads/financial_application.zip', download: true }
+                ]
+            },
+            {
+                name: 'AI Ecosystem 3D',
+                type: '3D simulation',
+                description: 'A Python simulation of AI agents in a 3D environment. Agents are controlled by neural networks and can evolve over time. See the included readme for setup instructions.',
+                tags: ['Simulation', 'Neural networks', 'Python'],
+                icon: '🤖',
+                actions: [
+                    { label: 'Watch preview', href: 'preview.html?project=AI%20Ecosystem%203d%20(Python)' },
+                    { label: 'Download source', href: 'static/downloads/AI-Ecosystem-3D.zip', download: true }
+                ]
+            },
+            {
+                name: 'Snake Game',
+                type: 'Desktop game',
+                description: 'A simple Snake game built with Python’s turtle graphics library, featuring movement, collision detection, score tracking, and restart and quit controls.',
+                tags: ['Turtle graphics', 'Python'],
+                icon: '🐍',
+                actions: [
+                    { label: 'Watch preview', href: 'preview.html?project=Snake%20Game%20(Python)' },
+                    { label: 'Download source', href: 'static/downloads/Snake_game_using_python.zip', download: true }
+                ]
+            },
+            {
+                name: 'Clinique',
+                type: 'Android mobile app',
+                description: 'A health-related mobile application created as a final project for Mobile Development. Install the downloaded package on an Android device.',
+                tags: ['Android', 'Firestore', 'Java'],
+                icon: '💊',
+                actions: [
+                    { label: 'Watch preview', href: 'preview.html?project=Clinique%20(Android)' },
+                    { label: 'Download app', href: 'static/downloads/clinique.zip', download: true }
+                ]
+            },
+            {
+                name: 'Xamarin Mobile App',
+                type: 'Cross-platform mobile app',
+                description: 'A mobile application in development, built with Xamarin for cross-platform compatibility.',
+                tags: ['Xamarin', 'Mobile'],
+                icon: '📱',
+                status: 'In progress',
+                actions: []
+            }
+        ];
+
+        const projectGrid = document.getElementById('project-grid');
+        const projectList = document.createElement('ul');
+        projectList.className = 'project-list portfolio-grid';
+        projectList.innerHTML = projects.map((project, index) => {
+            const tags = project.tags.map(tag => `<span>${tag}</span>`).join('');
+            const actions = project.actions.map(action => {
+                const target = action.target ? ' target="_blank" rel="noopener noreferrer"' : '';
+                const download = action.download ? ' download' : '';
+                return `<a href="${action.href}"${target}${download}>${action.label}</a>`;
+            }).join('');
+            const status = project.status ? `<span class="project-status">${project.status}</span>` : '';
+
+            return `
+                <li class="project-card portfolio-project reveal" style="transition-delay: ${Math.min(index * 0.08, 0.4)}s;">
+                    <div class="project-card-header">
+                        <span class="project-icon" aria-hidden="true">${project.icon}</span>
+                        <div class="project-card-meta">
+                            <span class="project-type">${project.type}</span>
+                            ${status}
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>${project.name}</h3>
+                        <p>${project.description}</p>
+                        <div class="project-tags">${tags}</div>
+                        ${actions ? `<div class="project-actions">${actions}</div>` : ''}
+                    </div>
+                </li>
+            `;
+        }).join('');
+        projectGrid.appendChild(projectList);
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
@@ -118,4 +201,3 @@
     </script>
 </body>
 </html>
-

@@ -1,22 +1,22 @@
 # Hakuryu Kato's Portfolio Website
 
-A modern, responsive portfolio website showcasing backend development, game design, and mobile app projects.
+A responsive portfolio website showcasing web applications, mobile apps, and game projects in one unified project gallery.
 
 ## Overview
 
-This is a personal portfolio website built with **HTML, CSS, and vanilla JavaScript**. It features a clean, polished interface with smooth scroll animations and highlights work across three main areas:
+This is a personal portfolio website built with **HTML, CSS, and vanilla JavaScript**. It features a responsive interface with smooth scroll animations and a single portfolio page for all projects. Every project is labeled by application type:
 
-- **Website Projects** — Flask apps, web applications, and responsive designs
-- **Game Development** — Unity game prototypes and interactive mechanics
-- **Mobile Apps** — Android Studio utilities and productivity tools
+- **Website and web applications**
+- **Games and 3D simulations**
+- **Android and cross-platform mobile applications**
 
 ## Features
 
 ### Design & UX
 - **Responsive Layout** — Mobile-friendly design that adapts to all screen sizes
 - **Smooth Animations** — Intersection Observer-based scroll reveals for a polished feel
-- **Modern Aesthetics** — Gradient orbs, custom typography (Inter & Outfit fonts), and clean card-based layouts
-- **Dark-Friendly** — Professional color scheme optimized for readability
+- **Modern Aesthetics** — Custom typography (Inter & Outfit fonts), subtle gradients, and project cards
+- **Midnight & Electric Palette** — UI colors inspired by `#020617`, `#60A5FA`, `#2563EB`, and `#22D3EE`
 
 ### Site Structure
 
@@ -25,14 +25,16 @@ portfolio_website/
 ├── public/
 │   ├── index.html              # Home page with hero and overview sections
 │   ├── profile.html            # Profile, skills, and expertise
-│   ├── portfolio.html          # Main portfolio hub (website projects)
-│   ├── portfolio_game.html     # Game development projects
-│   ├── portfolio_mobile.html   # Mobile app projects
+│   ├── portfolio.html          # Unified gallery for all projects
+│   ├── portfolio_game.html     # Legacy URL; redirects to the unified portfolio
+│   ├── portfolio_mobile.html   # Legacy URL; redirects to the unified portfolio
+│   ├── portfolio_website.html  # Legacy URL; redirects to the unified portfolio
+│   ├── announcement.html       # Legacy URL; redirects to the unified portfolio
 │   ├── about.html              # About section with contact links
 │   ├── preview.html            # Project preview page
 │   └── static/
 │       ├── style.css           # Global styles and animations
-│       ├── images/             # Project screenshots and icons
+│       ├── images/             # Profile and social icons
 │       └── downloads/          # Project files for download
 ```
 
@@ -42,9 +44,8 @@ portfolio_website/
 |------|---------|
 | **Home** (`index.html`) | Hero section, quick introduction, and three main portfolio categories |
 | **Profile** (`profile.html`) | Detailed bio, skills, and what's featured in the portfolio |
-| **Portfolio** (`portfolio.html`) | Web and website projects with screenshots and previews |
-| **Game Dev** (`portfolio_game.html`) | Game prototypes and interactive experiments |
-| **Mobile** (`portfolio_mobile.html`) | Android apps and mobile utilities |
+| **Portfolio** (`portfolio.html`) | All web, game, simulation, and mobile projects with type labels, previews, and downloads |
+| **Legacy category and announcement URLs** | Redirect to the unified portfolio |
 | **About** (`about.html`) | Full background, education, contact links (GitHub, Facebook, Instagram) |
 
 ## Technologies Used
@@ -74,14 +75,13 @@ const revealOnScroll = new IntersectionObserver((entries) => {
 ```
 
 ### Dynamic Project Rendering
-Projects are defined as JavaScript objects and rendered into the DOM:
+Projects are defined together on `public/portfolio.html` and rendered as a single gallery:
 ```javascript
 const projects = [
   {
     name: 'Project Name',
     description: '...',
     tags: ['Tag1', 'Tag2'],
-    image: 'static/images/project.png',
     actions: [...]
   }
 ];
@@ -101,7 +101,6 @@ Fixed header with navigation links to all main sections.
 
 - **Colors & Fonts** — Edit `static/style.css` for custom themes
 - **Projects** — Update project objects in each portfolio page's `<script>` section
-- **Images** — Add screenshots to `static/images/` and reference in project data
 - **Content** — Edit HTML sections to update bio, skills, and descriptions
 
 ## Browser Support

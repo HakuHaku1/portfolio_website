@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="theme-color" content="#090d16" />
+    <meta name="theme-color" content="#020617" />
+    <meta http-equiv="refresh" content="0; url=portfolio.html" />
     <title>Hakuryu Kato</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css" />
+    <script src="static/transitions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="static/vanta-background.js"></script>
 </head>
 <body>
     <div class="orb-container">
@@ -24,7 +29,6 @@
                 <span></span>
             </button>
             <nav class="main-nav">
-                <a href="announcement.html">Upcoming Projects</a>
                 <a href="index.html">Home</a>
                 <a href="profile.html">Profile</a>
                 <a href="portfolio.html">Portfolio</a>
@@ -38,7 +42,7 @@
 
 <section class="category container reveal">
   <h1>Mobile Development</h1>
-  <p>Android apps and utilities. Each entry includes screenshots and an APK or source download.</p>
+  <p>Android apps and utilities. Each entry includes a preview video and an APK or source download.</p>
   <div id="project-grid"></div>
 </section>
 
@@ -50,8 +54,7 @@ const projects = [
     tags: ['Android', 'Firestore', "Java"],
     link: 'static/demos/clinique/',
     icon: '💊',
-    image: 'static/images/clinique.jpg',
-    imageAlt: 'Mobile 1',
+    type: 'Android mobile app',
     actions: [
       { label: 'Watch preview', href: 'preview.html?project=Clinique%20(Android)' },
       { label: 'Download APK', href: 'static/downloads/clinique.zip', download: true }
@@ -66,25 +69,32 @@ function renderProjects(containerId) {
   if (!container) return;
 
   const list = document.createElement('ul');
-  list.className = 'project-list';
+  list.className = 'project-list portfolio-grid';
 
   list.innerHTML = projects.map((project, index) => {
     const actions = project.actions.map(action => {
       const downloadAttr = action.download ? ' download' : '';
       const targetAttr = action.target ? ` target="${action.target}"` : '';
       return `<a href="${action.href}"${targetAttr}${downloadAttr}>${action.label}</a>`;
-    }).join(' • ');
+    }).join('');
 
     const tags = project.tags.length ? `<div class="project-tags">${project.tags.map(tag => `<span>${tag}</span>`).join('')}</div>` : '';
+    const status = project.status ? `<span class="project-status">${project.status}</span>` : '';
 
     return `
-      <li class="project-card reveal" style="transition-delay: ${(index + 1) * 0.15}s;">
-        <img src="${project.image}" alt="${project.imageAlt}">
-        <div>
-          <h3>${project.icon} ${project.name}</h3>
+      <li class="project-card portfolio-project reveal" style="transition-delay: ${(index + 1) * 0.15}s;">
+        <div class="project-card-header">
+          <span class="project-icon" aria-hidden="true">${project.icon}</span>
+          <div class="project-card-meta">
+            <span class="project-type">${project.type}</span>
+            ${status}
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>${project.name}</h3>
           <p>${project.description}</p>
           ${tags}
-          <p>${actions}</p>
+          ${actions ? `<div class="project-actions">${actions}</div>` : ''}
         </div>
       </li>
     `;
@@ -148,4 +158,3 @@ renderProjects('project-grid');
     </script>
 </body>
 </html>
-
